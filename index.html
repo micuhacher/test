@@ -30,7 +30,7 @@
       padding: 16px;
     }
 
-    
+    /* FULL-SCREEN CONFETTI CANVAS */
     #confettiCanvas {
       position: fixed;
       inset: 0;
@@ -174,12 +174,12 @@
     <h1>Zuzia skarbie, będziesz moją walentynką?</h1>
 
     <section class="button-zone" id="zone">
-      <button id="yesBtn">Yes</button>
-      <button id="noBtn">No</button>
+      <button id="yesBtn">TAK</button>
+      <button id="noBtn">nie</button>
     </section>
 
     <!-- HINT -->
-    <div class="hint" id="hint">“No” seems a bit shy 😈</div>
+    <div class="hint" id="hint">No chyba nie powiesz "nie"? 😈</div>
 
     <section class="result" id="result">
       <h2>YAY! 🎉</h2>
@@ -198,7 +198,7 @@
     const result = document.getElementById("result");
     const hint = document.getElementById("hint");
 
-    \
+    /* ---------- CONFETTI ---------- */
     const confettiCanvas = document.getElementById("confettiCanvas");
 
     function resizeConfettiCanvas() {
@@ -243,14 +243,14 @@
       }, 300);
     }
 
-    \
+    /* ---------- YES BUTTON GROWS ---------- */
     let yesScale = 1;
     function growYes() {
       yesScale = Math.min(2.2, yesScale + 0.1);
       yesBtn.style.transform = `translateY(-50%) scale(${yesScale})`;
     }
 
-    
+    /* ---------- NO BUTTON RUNS AWAY ---------- */
     function clamp(n, min, max) {
       return Math.max(min, Math.min(max, n));
     }
@@ -289,10 +289,10 @@
 
     noBtn.addEventListener("click", e => e.preventDefault());
 
-
+    /* ---------- YES CLICK ---------- */
     yesBtn.addEventListener("click", () => {
       zone.style.display = "none";
-      hint.style.display = "none";     
+      hint.style.display = "none";     // HIDE THE HINT
       result.style.display = "block";
       resizeConfettiCanvas();
       fullScreenConfetti();
@@ -300,3 +300,5 @@
   </script>
 </body>
 </html>
+
+
